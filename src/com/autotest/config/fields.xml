@@ -4,6 +4,6 @@
 
 <mapper namespace="com.yihaomen.mybatis.models.UserMapper">
     <select id="selectUserByID" parameterType="int" resultType="Fields">
-        select * from `user` where id = #{id}
+        select * from fields where id = #{id}
     </select>
 </mapper>

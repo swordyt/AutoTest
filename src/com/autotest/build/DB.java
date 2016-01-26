@@ -9,9 +9,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import com.autotest.core.DriverService;
-import com.autotest.entity.response.ResponseArray;
 import com.autotest.interfaces.RequestsMapper;
-import com.autotest.model.Requests;
+import com.autotest.model.Fields;
 
 public class DB {
 	public static SqlSessionFactory sqlSessionFactory;
@@ -41,24 +40,29 @@ public class DB {
 		return session;
 	}
 	public static void main(String[] args) {
-//		RequestsMapper map = DB.getSession().getMapper(RequestsMapper.class);
-//		Requests request = map.selectRequestByID(28);
-//		System.out.println(request.getName());
-//		List<Requests> list=map.selectRequests();
-//		for(Requests req:list){
-//			System.out.println(req.getDataaddress());
-//		}
-		SqlSession session=DB.getSession();
-		RequestsMapper map=DB.getSession().getMapper(RequestsMapper.class);
-//		Requests req=map.selectRequestByID(31);
-//		map.addRequests(req);
+/*		增加数据
+ * 		SqlSession session=DB.getSession();
 		Requests req=new Requests();
-		req.setName("test");
 		req.setDataaddress("test");
+		req.setName("test");
+		RequestsMapper map=session.getMapper(RequestsMapper.class);
 		map.addRequests(req);
-		session.commit();
-		System.out.println(req.getId());
-		session.close();
-		
+		session.commit(true);
+		System.out.println(req.getId());*/
+		SqlSession session = DB.getSession();
+		RequestsMapper map=session.getMapper(RequestsMapper.class);
+/*		更新
+ * 		Requests req1=map.selectRequestByID(41);
+		req1.setName("test1");
+		req1.setDataaddress("test1");
+		map.updateRequests(req1);
+		session.commit(true);*/
+/*		删除
+		 * map.deleteRequest(41);*/
+		List<Fields> fields=map.getFields(31);
+		for(Fields field:fields){
+			System.out.println(field.getName());
+		}
+//		session.commit(true);
 	}
 }

@@ -6,6 +6,13 @@ public class Requests {
 	private String dataaddress;
 	private Integer created_at;
 	private Integer updated_at;
+	private Integer delete_at;
+	public Integer getDelete_at() {
+		return delete_at;
+	}
+	public void setDelete_at(Integer delete_at) {
+		this.delete_at = delete_at;
+	}
 	public Integer getId() {
 		return id;
 	}

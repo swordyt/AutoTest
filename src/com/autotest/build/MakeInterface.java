@@ -14,13 +14,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class MakeInterface {
 
 	public static void main(String[] args) {
-		Properties pro = PropertiesTool.readProperties("/configfile/config.properties");
+		Properties pro = PropertiesTool.readProperties("/com/autotest/config/config.properties");
 		String []confs = pro.getProperty("interface").split(",");
 		for(String conf:confs){
-			File file = new File(System.getProperty("user.dir")+"\\src\\requestentity\\ReqEntity_"+conf+".java");
+			File file = new File(System.getProperty("user.dir")+"\\src\\com\\autotest\\entity\\request\\ReqEntity_"+conf+".java");
 			if(!file.exists()){
 				System.out.println("创建文件：ReqEntity_"+conf+".java");
-				Properties proConf = PropertiesTool.readProperties("/configfile/config.properties");
+				Properties proConf = PropertiesTool.readProperties("/com/autotest/config/config.properties");
 				String []fields = proConf.getProperty(conf+".fields").split(",");
 				makeRequest(conf,fields);
 				System.out.println("创建文件："+conf+".xlsx");
@@ -30,9 +30,9 @@ public class MakeInterface {
 	}
 	public static void makeRequest(String clsName,String []fields){
 		String content = "";
-		String requestPath = System.getProperty("user.dir")+"\\src\\requestentity\\ReqEntity_"+clsName+".java";
+		String requestPath = System.getProperty("user.dir")+"\\src\\com\\autotest\\entity\\request\\ReqEntity_"+clsName+".java";
 		File request = new File(requestPath);
-		content = "package requestentity;\n"
+		content = "package com.autotest.entity.request;\n"
 				+ "public class ReqEntity_"+clsName+" extends RequestEntity {\n"
 						+ "public ReqEntity_"+clsName+"(){\n"
 							+"initData();\n"
@@ -79,7 +79,7 @@ public class MakeInterface {
 		}
 		//创建文件流
 		try {
-			OutputStream out = new FileOutputStream(System.getProperty("user.dir")+"\\src\\interfacedata\\"+clsName+".xlsx");
+			OutputStream out = new FileOutputStream(System.getProperty("user.dir")+"\\src\\com\\autotest\\data\\"+clsName+".xlsx");
 			wb.write(out);
 			out.close();
 		} catch (Exception e) {
