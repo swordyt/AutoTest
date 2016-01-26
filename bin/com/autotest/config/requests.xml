@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.autotest.interfaces.RequestsMapper">
+    <select id="selectRequestByID" parameterType="int" resultType="Requests">
+        select * from interrequests where id = #{id}
+    </select>
+    <select id="selectRequests"  resultType="Requests">
+    	select * from interrequests 
+    </select>
+    <insert id="addRequests" parameterType="Requests"
+    useGeneratedKeys="true" keyProperty="id">
+    insert  interrequests(name,dataaddress) values(#{name},#{dataaddress})
+    </insert>
+    <update id="updateRequests" parameterType="Requests">
+    update interrequests set name=#{name},dataaddress=#{dataaddress}
+    where id=#{id}
+    </update>
+</mapper>

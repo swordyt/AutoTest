@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>   
+<!DOCTYPE configuration        
+    PUBLIC "-//ibatis.apache.org//DTD Config 3.0//EN"        
+    "http://ibatis.apache.org/dtd/ibatis-3-config.dtd">  
+<configuration>
+    <typeAliases> 
+        <typeAlias alias="Requests" type="com.autotest.model.Requests"/> 
+<!--         <typeAlias alias="Sets" type="com.autotest.entity.model.Sets"/> 
+        <typeAlias alias="Checks" type="com.autotest.entity.model.Checks"/> 
+        <typeAlias alias="Fields" type="com.autotest.entity.model.Fields"/> -->
+    </typeAliases> 
+
+    <environments default="development">
+        <environment id="development">
+        <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+            <property name="driver" value="com.mysql.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://10.59.80.178:3306/work" />
+            <property name="username" value="root"/>
+            <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    
+    <mappers>
+        <mapper resource="com/autotest/config/requests.xml"/>
+<!--         <mapper resource="com/autotest/config/sets.xml"/>
+        <mapper resource="com/autotest/config/fields.xml"/>
+        <mapper resource="com/autotest/config/checks.xml"/> -->
+    </mappers>
+</configuration>
