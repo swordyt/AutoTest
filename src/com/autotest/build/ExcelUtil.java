@@ -1,4 +1,4 @@
-ï»¿package com.autotest.build;
+package com.autotest.build;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -44,7 +44,7 @@ public class ExcelUtil
   {
     if ((filePath == null) || ((!isExcel2003(filePath)) && (!isExcel2007(filePath))))
     {
-      this.errorInfo = "æ–‡ä»¶åä¸æ˜¯excelæ ¼å¼";
+      this.errorInfo = "ÎÄ¼şÃû²»ÊÇexcel¸ñÊ½";
 
       return false;
     }
@@ -55,7 +55,7 @@ public class ExcelUtil
 
     if ((file == null) || (!file.exists()))
     {
-      this.errorInfo = "æ–‡ä»¶ä¸å­˜åœ¨";
+      this.errorInfo = "ÎÄ¼ş²»´æÔÚ";
 
       return false;
     }
@@ -201,10 +201,10 @@ public class ExcelUtil
               cellValue = "";
               break;
             case 5:
-              cellValue = "éæ³•å­—ç¬¦";
+              cellValue = "·Ç·¨×Ö·û";
               break;
             default:
-              cellValue = "æœªçŸ¥ç±»å‹";
+              cellValue = "Î´ÖªÀàĞÍ";
             }
 
           }
@@ -246,9 +246,9 @@ public class ExcelUtil
     {
       for (int i = 1; i < list.size(); i++) {
     	  Map map = new HashMap();
-        //è·å–å…¶ä¸­æŸè¡Œçš„æ•°æ®
+        //»ñÈ¡ÆäÖĞÄ³ĞĞµÄÊı¾İ
         List<List<String>> cellList = (List)list.get(i);
-        //å°†æ¯è¡Œæ•°æ®ä¸ç¬¬ä¸€è¡Œæ ‡é¢˜å¯¹åº”æ”¾å…¥mapä¸­
+        //½«Ã¿ĞĞÊı¾İÓëµÚÒ»ĞĞ±êÌâ¶ÔÓ¦·ÅÈëmapÖĞ
         for (int j = 0; j < cellList.size(); j++) {
           map.put(((List)list.get(0)).get(j), cellList.get(j));
         }
@@ -261,7 +261,7 @@ public class ExcelUtil
   }
 
   public List<Map<String, String>> excelDatas(String filePath, String sheetName) {
-    List<List<String>> lists = read(filePath, sheetName); //å¾—åˆ°exclè¡¨å…¶ä¸­æŸä¸ªsheetçš„æ•°æ®
+    List<List<String>> lists = read(filePath, sheetName); //µÃµ½excl±íÆäÖĞÄ³¸ösheetµÄÊı¾İ
 
     List<Map<String, String>>  datas = reflectMapList(lists);
     return datas;

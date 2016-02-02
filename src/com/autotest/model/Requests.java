@@ -6,12 +6,12 @@ public class Requests {
 	private String dataaddress;
 	private Integer created_at;
 	private Integer updated_at;
-	private Integer delete_at;
+	private Integer deleted_at;
 	public Integer getDelete_at() {
-		return delete_at;
+		return deleted_at;
 	}
-	public void setDelete_at(Integer delete_at) {
-		this.delete_at = delete_at;
+	public void setDelete_at(Integer deleted_at) {
+		this.deleted_at = deleted_at;
 	}
 	public Integer getId() {
 		return id;

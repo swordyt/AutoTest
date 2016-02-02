@@ -50,7 +50,8 @@ public class DB {
 		session.commit(true);
 		System.out.println(req.getId());*/
 		SqlSession session = DB.getSession();
-		RequestsMapper map=session.getMapper(RequestsMapper.class);
+//		RequestsMapper map=session.getMapper(RequestsMapper.class);
+		
 /*		¸üÐÂ
  * 		Requests req1=map.selectRequestByID(41);
 		req1.setName("test1");
@@ -59,10 +60,10 @@ public class DB {
 		session.commit(true);*/
 /*		É¾³ý
 		 * map.deleteRequest(41);*/
-		List<Fields> fields=map.getFields(31);
+/*		List<Fields> fields=map.getFields(31);
 		for(Fields field:fields){
 			System.out.println(field.getName());
-		}
+		}*/
 //		session.commit(true);
 	}
 }

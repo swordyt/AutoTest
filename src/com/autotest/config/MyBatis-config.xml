@@ -5,9 +5,10 @@
 <configuration>
     <typeAliases> 
         <typeAlias alias="Requests" type="com.autotest.model.Requests"/> 
-<!--         <typeAlias alias="Sets" type="com.autotest.model.Sets"/> 
-        <typeAlias alias="Checks" type="com.autotest.model.Checks"/>  -->
+        <typeAlias alias="Sets" type="com.autotest.model.Sets"/> 
+       <!--  <typeAlias alias="Checks" type="com.autotest.model.Checks"/> -->
         <typeAlias alias="Fields" type="com.autotest.model.Fields"/>
+        <typeAlias alias="Runners" type="com.autotest.model.Runners"/>
     </typeAliases> 
 
     <environments default="development">
@@ -26,6 +27,6 @@
         <mapper resource="com/autotest/config/requests.xml"/>
   <!--  <mapper resource="com/autotest/config/sets.xml"/> -->
         <mapper resource="com/autotest/config/fields.xml"/>
-  <!--       <mapper resource="com/autotest/config/checks.xml"/>  -->
+        <mapper resource="com/autotest/config/runners.xml"/>
     </mappers>
 </configuration>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.autotest.interfaces.RunnersMapper">
+	<resultMap type="Sets" id="resultSets">
+		<id column="id" property="id"/>
+		<result column="name" property="name"  />
+		<result column="created_at" property="created_at" />
+		<result column="updated_at" property="updated_at" />
+		<result column="delete_at" property="deleted_at" />
+	</resultMap>
+	<resultMap type="Requests" id="resultRequests">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="dataaddress" property="dataaddress"/>
+		<result column="created_at" property="created_at"/>
+		<result column="updated_at" property="updated_at"/>
+		<result column="delete_at" property="delete_at"/>
+	</resultMap>
+	<!-- <resultMap type="Runners" id="resultRunners">
+		<id property="id" column="id"/>
+		<result property="name" column="name"/>
+		<result property="deleted_at" column="deleted_at"/>
+		<result property="updated_at" column="updated_at"/>
+		<result property="created_at" column="created_at"/>
+		<association property="request" javaType="Requests" resultMap="resultRequests"></association>
+	</resultMap>
+	
+    <select id="selectRequestByID" parameterType="int" resultType="Requests">
+        select * from interrequests where id = #{id}
+    </select>
+    <select id="selectRequests"  resultType="Requests">
+    	select * from interrequests 
+    </select>
+    <insert id="addRequest" parameterType="Requests"
+    useGeneratedKeys="true" keyProperty="id">
+    insert  into interrequests(name,dataaddress) values(#{name},#{dataaddress})
+    </insert>
+    <update id="updateRequest" parameterType="Requests">
+    update interrequests set name=#{name},dataaddress=#{dataaddress}
+    where id=#{id}
+    </update>
+    <delete id="deleteRequest" parameterType="int">
+    delete from interrequests where id=#{id}
+    </delete>
+    <select id="getFields" parameterType="int" resultMap="resultFields">
+    select fields.id,fields.name,fields.requestid,fields.created_at,fields.updated_at,fields.deleted_at  from fields join interrequests on interrequests.id=fields.requestid where interrequests.id=#{id}
+    </select> -->
+    <select id="getSets" parameterType="String" resultMap="resultSets">
+     select * from sets where id in (select setid from runners where runners.state=#{state})
+    </select>
+     <select id="getRequests" parameterType="int" resultMap="resultRequests">
+     select * from interrequests where interrequests.id in (select runners.requestid from runners where runners.setid=#{setid} and runners.deleted_at is null)
+    </select>
+</mapper>
