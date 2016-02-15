@@ -3,9 +3,23 @@ package com.autotest.model;
 public class Sets {
 	private int id;
 	private String name;
+	private Integer drivertype;
+	public Integer getDrivertype() {
+		return drivertype;
+	}
+	public void setDrivertype(Integer drivertype) {
+		this.drivertype = drivertype;
+	}
+	private Integer datatype;
 	private Integer created_at;
 	private Integer updated_at;
 	private Integer deleted_at;
+	public Integer getDatatype() {
+		return datatype;
+	}
+	public void setDatatype(Integer datatype) {
+		this.datatype = datatype;
+	}
 	public int getId() {
 		return id;
 	}

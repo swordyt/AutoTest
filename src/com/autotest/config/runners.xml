@@ -6,6 +6,8 @@
 	<resultMap type="Sets" id="resultSets">
 		<id column="id" property="id"/>
 		<result column="name" property="name"  />
+		<result column="drivertype" property="drivertype"  />
+		<result column="datatype" property="datatype"  />
 		<result column="created_at" property="created_at" />
 		<result column="updated_at" property="updated_at" />
 		<result column="delete_at" property="deleted_at" />
@@ -48,9 +50,9 @@
     select fields.id,fields.name,fields.requestid,fields.created_at,fields.updated_at,fields.deleted_at  from fields join interrequests on interrequests.id=fields.requestid where interrequests.id=#{id}
     </select> -->
     <select id="getSets" parameterType="String" resultMap="resultSets">
-     select * from sets where id in (select setid from runners where runners.state=#{state})
+     select * from sets where id in (select setid from runners where runners.state=#{state} and runners.deleted_at is null)
     </select>
      <select id="getRequests" parameterType="int" resultMap="resultRequests">
-     select * from interrequests where interrequests.id in (select runners.requestid from runners where runners.setid=#{setid} and runners.deleted_at is null)
+     select * from interrequests where interrequests.id in (select runners.requestid from runners where runners.setid=#{setid} and runners.deleted_at is null order by runners.requestid asc) and interrequests.deleted_at is null
     </select>
 </mapper>

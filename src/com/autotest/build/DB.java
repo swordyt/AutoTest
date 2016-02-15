@@ -39,31 +39,4 @@ public class DB {
 	SqlSession session =DB.getSessionFactory().openSession();
 		return session;
 	}
-	public static void main(String[] args) {
-/*		增加数据
- * 		SqlSession session=DB.getSession();
-		Requests req=new Requests();
-		req.setDataaddress("test");
-		req.setName("test");
-		RequestsMapper map=session.getMapper(RequestsMapper.class);
-		map.addRequests(req);
-		session.commit(true);
-		System.out.println(req.getId());*/
-		SqlSession session = DB.getSession();
-//		RequestsMapper map=session.getMapper(RequestsMapper.class);
-		
-/*		更新
- * 		Requests req1=map.selectRequestByID(41);
-		req1.setName("test1");
-		req1.setDataaddress("test1");
-		map.updateRequests(req1);
-		session.commit(true);*/
-/*		删除
-		 * map.deleteRequest(41);*/
-/*		List<Fields> fields=map.getFields(31);
-		for(Fields field:fields){
-			System.out.println(field.getName());
-		}*/
-//		session.commit(true);
-	}
 }

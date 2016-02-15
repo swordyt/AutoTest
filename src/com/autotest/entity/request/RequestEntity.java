@@ -104,9 +104,11 @@ public class RequestEntity implements Request {
 	}
 	
 	protected void initData(){
-
-		List<Map<String,String>> data = new ExcelUtil().excelDatas(System.getProperty("user.dir")
-				+"\\src\\com\\autotest\\data\\"
+		String path="/data1/www/autotest/src/com/autotest/data/";
+		if(System.getProperties().getProperty("os.name").toUpperCase().contains("WINDOW")){
+			path=System.getProperty("user.dir")+"\\src\\com\\autotest\\data\\";
+		}
+		List<Map<String,String>> data = new ExcelUtil().excelDatas(path
 				+this.getClass().toString().split("ReqEntity_")[1]+".xlsx", "data");
 		Map<String, String> map = null;
 		if(DriverService.datatype == DataType.min){
